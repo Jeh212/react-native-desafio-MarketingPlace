@@ -30,25 +30,6 @@ const CartProvider: React.FC = ({ children }) => {
 
   useEffect(() => {
     async function loadProducts(): Promise<void> {
-<<<<<<< HEAD
-      // TODO LOAD ITEMS FROM ASYNC STORAGE
-    }
-
-    loadProducts();
-  }, []);
-
-  const addToCart = useCallback(async product => {
-    // TODO ADD A NEW ITEM TO THE CART
-  }, []);
-
-  const increment = useCallback(async id => {
-    // TODO INCREMENTS A PRODUCT QUANTITY IN THE CART
-  }, []);
-
-  const decrement = useCallback(async id => {
-    // TODO DECREMENTS A PRODUCT QUANTITY IN THE CART
-  }, []);
-=======
       const storageProducts = await AsyncStorage.getItem(
         '@GoMarketplace:products',
       );
@@ -113,7 +94,6 @@ const CartProvider: React.FC = ({ children }) => {
     },
     [products],
   );
->>>>>>> Initial commit
 
   const value = React.useMemo(
     () => ({ addToCart, increment, decrement, products }),
