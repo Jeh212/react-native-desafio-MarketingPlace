@@ -26,6 +26,10 @@ import {
 import { useCart } from '../../hooks/cart';
 
 import formatValue from '../../utils/formatValue';
+<<<<<<< HEAD
+=======
+import { PriceContainer } from '../Dashboard/styles';
+>>>>>>> Initial commit
 
 interface Product {
   id: string;
@@ -39,6 +43,7 @@ const Cart: React.FC = () => {
   const { increment, decrement, products } = useCart();
 
   function handleIncrement(id: string): void {
+<<<<<<< HEAD
     // TODO
   }
 
@@ -56,6 +61,31 @@ const Cart: React.FC = () => {
     // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
 
     return 0;
+=======
+    increment(id);
+  }
+
+  function handleDecrement(id: string): void {
+    decrement(id);
+  }
+
+  const cartTotal = useMemo(() => {
+    const total = products.reduce((accumlator, product) => {
+      const productsSubtotal = product.price * product.quantity;
+      return accumlator + productsSubtotal;
+    }, 0);
+
+    return formatValue(total);
+  }, [products]);
+
+  const totalItensInCart = useMemo(() => {
+    const total = products.reduce((accumlator, product) => {
+      const productsQuantity = product.quantity;
+      return accumlator + productsQuantity;
+    }, 0);
+
+    return total;
+>>>>>>> Initial commit
   }, [products]);
 
   return (
